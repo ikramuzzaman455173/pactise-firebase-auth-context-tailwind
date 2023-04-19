@@ -14,16 +14,13 @@ const Header = () => {
           </Link>
           <ul className="items-stretch hidden space-x-3 lg:flex">
             <li className="flex">
-              <a rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 border-transparent text-orange-600 border-orange-600">Link</a>
+              <Link to="/" className="flex items-center px-4 -mb-1 border-b-2 border-transparent text-orange-600 border-orange-600 hover:text-green-500 active:text-slate-500">Home</Link>
             </li>
             <li className="flex">
-              <a rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 border-transparent">Link</a>
+              <Link to="/login" className="flex items-center px-4 -mb-1 border-b-2 border-transparent text-orange-600 border-orange-600 hover:text-green-500 active:text-slate-500">Login</Link>
             </li>
             <li className="flex">
-              <a rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 border-transparent">Link</a>
-            </li>
-            <li className="flex">
-              <a rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 border-transparent">Link</a>
+              <Link to="/register" className="flex items-center px-4 -mb-1 border-b-2 border-transparent text-orange-600 border-orange-600 hover:text-green-500 active:text-slate-500">Register</Link>
             </li>
           </ul>
           <div className="items-center flex-shrink-0 hidden lg:flex">

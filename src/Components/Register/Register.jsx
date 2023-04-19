@@ -1,10 +1,21 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaEye } from 'react-icons/fa';
 import { FaEyeSlash } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 const Register = () => {
   const [passwordShow, setpasswordShow] = useState(false)
+  const {signInWithGoogle}=useContext(AuthContext)
 
+
+  const handleGoogleLogin = () => {
+    signInWithGoogle()
+    .then(result => {
+            console.log(result.user);
+          }).catch(error => {
+            console.log(`Error:`,error.message);
+          })
+  }
   const handleTogglePassword = () => {
     setpasswordShow(!passwordShow)
   }
@@ -16,7 +27,7 @@ const Register = () => {
           <span className="focus:underline hover:underline cursor-pointer text-blue-500 ml-2 font-semibold"><Link to="/login">Sign In here</Link></span>
         </p>
         <div className="my-6 space-y-4 ">
-          <button aria-label="Register with Google" type="button" className=" active:bg-blue-600 hover:bg-blue-500 duration-300 font-semibold focus:none outline-none hover:text-white flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 border-gray-600 ">
+          <button onClick={handleGoogleLogin} aria-label="Register with Google" type="button" className=" active:bg-blue-600 hover:bg-blue-500 duration-300 font-semibold focus:none outline-none hover:text-white flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 border-gray-600 ">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" className="w-5 h-5 fill-current">
               <path d="M16.318 13.714v5.484h9.078c-0.37 2.354-2.745 6.901-9.078 6.901-5.458 0-9.917-4.521-9.917-10.099s4.458-10.099 9.917-10.099c3.109 0 5.193 1.318 6.38 2.464l4.339-4.182c-2.786-2.599-6.396-4.182-10.719-4.182-8.844 0-16 7.151-16 16s7.156 16 16 16c9.234 0 15.365-6.49 15.365-15.635 0-1.052-0.115-1.854-0.255-2.651z"></path>
             </svg>
